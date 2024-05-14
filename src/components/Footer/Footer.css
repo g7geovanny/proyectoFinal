@@ -1,0 +1,44 @@
+.footer {
+    background-color: #f4f4f4;
+    padding: 20px 0;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .section {
+    flex: 1;
+    margin: 0 20px;
+  }
+  
+  .contact-form {
+    margin: 20px;
+  }
+  
+  .contact-form input {
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  .contact-form button {
+    padding: 5px 10px;
+    background-color: #7ecf49;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .social-media {
+    margin-top: 20px;
+  }
+  
+  .divider {
+    width: 90%;
+    margin: 20px auto;
+    border: none;
+    border-top: 1px solid #1d4370;
+  }
+  

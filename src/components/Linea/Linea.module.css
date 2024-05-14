@@ -1,0 +1,158 @@
+.seriePasos{
+  background-color: transparent;
+}
+
+.linea{
+  position: relative;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  width: 95%;
+  
+}
+
+.contenedor{
+  position: relative;
+  height: 150px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+.topContenedor{
+  animation: movedown 1s linear forwards;
+  opacity: 0;
+}
+
+
+@keyframes movedown {
+  0%{
+    opacity: 1;
+    transform: translateY(-30px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  
+}
+
+
+.bottomContenedor{
+  animation: moveup 1s linear forwards;
+  opacity: 0;
+}
+
+@keyframes moveup {
+  0%{
+    opacity: 1;
+    transform: translateY(60px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  
+}
+
+
+
+.contenedor:nth-child(1){
+  grid-column: 1;
+  grid-row: 1;
+  animation-delay: 0s;
+}
+
+.contenedor:nth-child(2){
+  animation-delay: 1s;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.contenedor:nth-child(3){
+  animation-delay: 2s;
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.contenedor:nth-child(4){
+  animation-delay: 3s;
+  grid-column: 4;
+  grid-row: 2;
+}
+
+.contenedor:nth-child(5){
+  animation-delay: 4s;
+  grid-column: 5;
+  grid-row: 1;
+}
+
+.contenedor:nth-child(6){
+  animation-delay: 5s;
+  grid-column: 6;
+  grid-row: 2;
+}
+
+.contenedor:nth-child(7){
+  animation-delay: 6s;
+  grid-column: 7;
+  grid-row: 1;
+}
+
+.contenedor:nth-child(8){
+  animation-delay: 7s;
+  grid-column: 8;
+  grid-row: 2;
+}
+
+
+
+.contenedor img{
+  position: absolute;
+  width: 40px;
+  border-radius: 50%;
+  bottom: -20px;
+}
+
+.bottomContenedor img {
+  top: -20px;
+}
+
+
+
+.linea::after{
+  content: "";
+  position: absolute;
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(to left,#7ecf49 ,#04bbf1,#1d4370 );
+  top: 50%;
+  z-index: -1;
+  animation: moveline 8s linear forwards;
+}
+
+@keyframes moveline {
+  0%{
+    width: 0;
+  }
+
+  100%{
+    width: 100%;
+  }
+  
+}
+
+.textGradient{
+  background: linear-gradient(to right, #7ecf49 ,#04bbf1,#1d4370);
+  background-clip: text; /* Aplicar el gradiente directamente a las letras */
+  -webkit-background-clip: text; /* Para navegadores basados en WebKit */
+  color: transparent;  
+}
