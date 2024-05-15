@@ -21,6 +21,11 @@ const App = () => {
 
     <Principal/>
 
+    <Video/>
+
+    <Linea/>
+
+    <Mapa/>
 
     </>
 
