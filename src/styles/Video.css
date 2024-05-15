@@ -1,0 +1,38 @@
+.texto{
+    background: linear-gradient(to right, #7ecf49 ,#04bbf1,#1d4370);
+    background-clip: text; /* Aplicar el gradiente directamente a las letras */
+    -webkit-background-clip: text; /* Para navegadores basados en WebKit */
+    color: transparent;  
+}
+
+
+@media screen and (min-width: 1440px) and (max-width: 2500px){
+    .contenedor-texto-video{
+       
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 60px 10px;
+    }
+
+
+    .mi-video{
+        width: 850px;
+        height: 438px;
+    }
+}
+
+
+@media screen and (min-width: 1366px) and (max-width: 1440px){
+    .contenedor-texto-video{
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 5px 10px;
+    }
+
+
+    .mi-video{
+        width: 563px;
+        height: 300px;
+    }
+}

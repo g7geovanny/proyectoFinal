@@ -1,19 +1,19 @@
-import { Link } from "react-router-dom";
+import React from 'react'
+
+const ModalPlanta = (onClose, title , text) => {
 
 
-import botonCerrar from "../../assets/boton-x.png";
+  return (
 
 
-function Modal({ onClose, title, content, link}) {
-    return (
-      <div className="fixed inset-0 flex items-center justify-center z-50">
+    <div className="fixed inset-0 flex items-center justify-center z-50">
         <div className="modal-overlay absolute inset-0 bg-gray-900 opacity-70"></div>
         <div className="modal-container bg-white w-96 rounded-lg shadow-lg z-50 overflow-y-auto">
           <div className="modal-content py-4 text-left px-6">
             <div className="flex justify-end items-center pb-3">
               
               <button className="modal-close text-4xl" onClick={onClose}>
-                <img src={botonCerrar} className=' w-12 h-12' alt="" />
+                &times;
               </button>
             </div>
 
@@ -21,16 +21,18 @@ function Modal({ onClose, title, content, link}) {
 
               <h2 className="text-2xl font-bold text-center">{title}</h2>
 
-              <p className="text-lg text-center font-pop">{content}</p>
-
-              <Link to={link}  className="bg-gradient-to-r from-[#7ecf49]  to-[#04bbf1]  hover:bg-gradient-to-r hover:from-[#6db23d] hover:to-[#027da6] cursor-pointer text-white font-bold py-2 px-4 rounded-full shadow-md">Registrarme</Link>
+              <p className="text-lg text-center font-pop">{text}</p>
 
             </div>
             
           </div>
         </div>
       </div>
-    );
-  }
-  
-  export default Modal;
+
+
+  )
+
+
+}
+
+export default ModalPlanta

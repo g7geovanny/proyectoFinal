@@ -1,0 +1,139 @@
+
+
+
+
+
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden; /* Oculta el desbordamiento de la imagen */
+}
+
+.slider {
+  display: flex;
+}
+
+.slide {
+  width: 100%;
+  flex-shrink: 0; /* Asegura que la imagen no cambie de tamaño */
+  opacity: 0; /* Oculta la imagen por defecto */
+  transition: opacity 0.5s ease-in-out; /* Efecto de transición suave */
+}
+
+.active {
+  opacity: 1; /* Muestra la imagen activa */
+}
+
+.carousel-image {
+  width: 100%; /* Ajusta el ancho de la imagen */
+  height: auto; /* Ajusta la altura automáticamente */
+}
+
+.carousel-button {
+  position: absolute;
+  height: 100px;
+  width: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.previous {
+  left: 0;
+  z-index: 20;
+}
+
+.next {
+  right: 0;
+}
+
+.texto{
+  background: linear-gradient(to right, #7ecf49 ,#04bbf1,#1d4370);
+  background-clip: text; /* Aplicar el gradiente directamente a las letras */
+  -webkit-background-clip: text; /* Para navegadores basados en WebKit */
+  color: transparent;  
+}
+
+.boton {
+  /* Establece el tamaño del botón y otros estilos */
+
+  font-size: 12px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #7ecf49;
+}
+
+
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+ 
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  border: none;
+  cursor: pointer;
+
+}
+
+
+.item{
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: "Poppins";
+}
+
+.item h2{
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.item p{
+  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+}

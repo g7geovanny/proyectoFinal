@@ -5,6 +5,7 @@ import './index.css'
 /*rutas */
 import App from './App.jsx'
 import Planta from "./routes/Planta.jsx";
+import HYS from "./routes/HYS.jsx";
 
 import {
   createBrowserRouter,
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/planta",
     element: <Planta/>
+  },
+  {
+    path: "/hys",
+    element: <HYS/>
   }
 ]);
 
