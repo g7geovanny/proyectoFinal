@@ -6,6 +6,7 @@ import './index.css'
 import App from './App.jsx'
 import Planta from "./routes/Planta.jsx";
 import HYS from "./routes/HYS.jsx";
+import imagen from "./routes/Imagen.jsx";
 
 import {
   createBrowserRouter,
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
   {
     path: "/hys",
     element: <HYS/>
+  },
+
+  {
+    path: "/precalificacion",
+    element: <imagen/>
   }
 ]);
 

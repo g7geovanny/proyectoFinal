@@ -47,13 +47,13 @@ const Linea = () => {
     };
   }, []);
 
- 
+ const botonExtra = true;
 
   const [modalInfo, setModalInfo] = useState({isOpen: false, title: "", content:""});
 
 
-  const openModal = (title, content, link) => {
-    setModalInfo({isOpen: true, title, content, link})
+  const openModal = (title, content, link, botonExtra) => {
+    setModalInfo({isOpen: true, title, content, link, botonExtra})
 
   }
 
@@ -91,13 +91,13 @@ const Linea = () => {
         <div className="contenedor topContenedor">
             <img src={tres} alt="" />
             <h2 className="text-sm font-pop font-bold">Precalificacion</h2>
-            <Boton onClick={ () => openModal( "Precalificacion", "Estimado proveedor, si está interesado en colaborar con nosotros, le agradeceríamos que completara el siguiente cuestionario.", "https://forms.gle/vhef1DwCcQPfXoXF7")} text="saber mas"/>
+            <Boton onClick={ () => openModal( "Precalificacion", "Estimado proveedor, si está interesado en colaborar con nosotros, le agradeceríamos que completara el siguiente cuestionario.", "/precalificacion")} text="saber mas"/>
         </div>
 
         <div className="contenedor bottomContenedor">
           <img src={cuatro} alt="" />
           <h2 className="text-sm font-pop font-bold">Acceso a SRM</h2>
-          <Boton onClick={ () => openModal( "Acceso a SRM", "Estimado proveedor, si está interesado en colaborar con nosotros, le agradeceríamos que completara el siguiente cuestionario.", "/planta")} text="saber mas"/>
+          <Boton onClick={ () => openModal( "Acceso a SRM", "Estimado proveedor, si está interesado en colaborar con nosotros, le agradeceríamos que completara el siguiente cuestionario.", "/planta", botonExtra)} text="saber mas"/>
         </div>
 
         <div className="contenedor topContenedor">
@@ -127,7 +127,7 @@ const Linea = () => {
         
 
         {modalInfo.isOpen && (
-          <Modal onClose={closeModal} title={modalInfo.title} content={modalInfo.content} link={modalInfo.link} />
+          <Modal onClose={closeModal} title={modalInfo.title} content={modalInfo.content} link={modalInfo.link} boton={modalInfo.botonExtra} />
           )}
 
       </div>

@@ -1,0 +1,50 @@
+.card-container {
+    display: flex;
+
+ 
+    
+  }
+  
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  
+  .card h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+
+  .textoo {
+    color: #090000;
+    background-color: #fff;
+    padding: 5px;
+    visibility: hidden; /* Inicialmente oculto */
+    height: 0; /* Altura cero */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    transition: visibility 0.3s ease, height 0.3s ease; /* Agrega transición suave */
+  }
+  
+  .textoo.visible {
+    visibility: visible; /* Cuando está visible */
+    height: auto; /* Altura automática */
+  }
+
+  .contenedor-item {
+    padding: 20px;
+    width: 80%;
+    margin: auto;
+    
+  }
+
+
+  .borde{
+    border: 3px solid;
+    border-image: linear-gradient(45deg, #7ecf49 ,#04bbf1,#1d4370) 1;
+    border-radius: 10px;
+  }
+  

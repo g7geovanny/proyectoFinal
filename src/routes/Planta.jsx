@@ -6,12 +6,14 @@ import { Link } from "react-router-dom";
 import carretera from "../assets/fondo-carretera.avif";
 import empresa from "../assets/imagen4.jpg";
 import logo from "../assets/logo2.svg";
-import work from "../assets/work.png";
+import work from "../assets/work.svg";
 import uno from "../assets/1.png";
 import dos from "../assets/2.png";
 import tres from "../assets/3.png";
 import cuatro from "../assets/4.png";
 import cerrar from "../assets/boton-x.png";
+import amarillo from "../assets/amarillo.svg";
+import post from "../assets/Post.svg";
 
 
 /*Componentes*/
@@ -24,16 +26,18 @@ import "../styles/HYS.css";
 
 const Planta = () => {
 
-  const images = [carretera, empresa, carretera]
+  const images = [amarillo, empresa, post]
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const goToPrevious = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+    const newIndex = currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
+    setCurrentImageIndex(newIndex);
   };
 
   const goToNext = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+    const newIndex = currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1;
+    setCurrentImageIndex(newIndex);
   };
 
 
@@ -64,40 +68,39 @@ const Planta = () => {
         <img className=' w-14 h-14' src={logo} alt="" />
         <nav className='flex justify-center items-center '>
             <ul className='flex justify-center items-center gap-16 text-lg font-semibold font-pop uppercase texto-gradient '>
-                <li>inicio</li>
+                <Link to="/"><li>inicio</li></Link>
                 <li>factoraje verde</li>
-                <li>h&s</li>
+                <Link><li>h&s</li></Link>
                 <li>Prevaloracion</li>
             </ul>
         </nav>
       </div>
 
       <div className="carousel-container">
-        <button onClick={goToPrevious} className="carousel-button previous">&#10094;</button>
-        <div className="slider">
-          {images.map((imageUrl, index) => (
-            <div
-              key={index}
-              className={`slide ${index === currentImageIndex ? 'active' : ''}`}
-              style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
-            >
-              <img src={imageUrl} alt={`Image ${index + 1}`} className="carousel-image" />
-            </div>
-          ))}
-        </div>
-        <button onClick={goToNext} className="carousel-button next">&#10095;</button>
+      <button onClick={goToPrevious} className="carousel-button previous">&#10094;</button>
+      <div className="slider">
+        {images.map((imageUrl, index) => (
+          <div
+            key={index}
+            className={`slide ${index === currentImageIndex ? 'active' : ''}`}
+            style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+          >
+            <img src={imageUrl} alt={`Image ${index + 1}`} className="carousel-image" />
+          </div>
+        ))}
       </div>
+      <button onClick={goToNext} className="carousel-button next">&#10095;</button>
+    </div>
 
 
 
-
-      <div className='  w-[1200px] m-auto '>
+      <div className='  w-[1200px] m-auto p-20 '>
           <h2 className='texto text-5xl text-center uppercase font-bold py-16'>progreso de ingreso a planta</h2>
           <div className=' grid grid-cols-2'>
             <div className='space-y-12'>
 
               <div className='contendor-card relative'>
-                <div className='flex flex-col card border space-y-5 p-5'>
+                <div className='flex flex-col card borde space-y-5 p-5'>
                   <h2 className='text-2xl text-center font-pop font-semibold text-black uppercase'>validar documentos h&s</h2>
                   <p className='text-lg font-semibol font-pop text-center'>Lorem ipsum dolor sit amet.</p>
                   <Link to="/hys" className='boton '>saber mas</Link>
@@ -105,7 +108,7 @@ const Planta = () => {
               </div>
 
               <div className='contendor-card relative'>
-                <div className='card border space-y-5 p-5'>
+                <div className='card borde space-y-5 p-5'>
                   <h2 className='text-2xl text-center font-pop font-semibold text-black uppercase'>realizar la induccion</h2>
                   <p className='text-lg font-semibol font-pop text-center'>Lorem ipsum dolor sit amet.</p>
                   <button onClick={() => openModal("inspeccion psicometrica", "llenado de bitacora", "valoracion de fatiga", "prueba antidoping y alcoholímetro") } className='boton'>saber mas</button>
@@ -113,7 +116,7 @@ const Planta = () => {
               </div>
 
               <div className='contendor-card relative'>
-                <div className='card border space-y-5 p-5'>
+                <div className='card borde space-y-5 p-5'>
                   <h2 className='text-2xl text-center font-pop font-semibold text-black uppercase'>Enlonado</h2>
                   <p className='text-lg font-semibol font-pop text-center'>Lorem ipsum dolor sit amet.</p>
                   <button onClick={() => openModal } className='boton'>saber mas</button>
@@ -122,8 +125,8 @@ const Planta = () => {
 
             </div>
 
-            <div className=' w-full h-full'>
-              <img src={work} alt="" />
+            <div className='flex justify-center items-center'>
+              <img className=' w-[30rem] h-[30rem]' src={work} alt="" />
             </div>
           </div>
 
@@ -136,25 +139,25 @@ const Planta = () => {
                   <img className=' w-12 h-12' src={cerrar} alt="boton-cerrar" />
                 </button>
 
-                <div className='item relative w-96 bg-slate-500 '>
+                <div className='item item1 relative w-96 bg-slate-500 '>
                   <img className=' w-12 h-12 absolute left-[-30px] bottom-[50%] ' src={uno} alt="imagen1" />
                   <h2 className=''>{modalInfo.texto1}</h2>
                   <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem, quidem.</p>
                 </div>
 
-                <div className='item relative w-96'>
+                <div className='item item2 relative w-96'>
                   <img className=' w-12 h-12 absolute left-[-30px] bottom-[50%] ' src={dos} alt="imagen1" />
                   <h2 className=''>{modalInfo.texto2}</h2>
                   <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem, quidem.</p>
                 </div>
 
-                <div className='item relative w-96'>
+                <div className='item item3 relative w-96'>
                   <img className=' w-12 h-12 absolute left-[-30px] bottom-[50px] ' src={tres} alt="imagen1" />
                   <h2 className=''>{modalInfo.texto3}</h2>
                   <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem, quidem.</p>
                 </div>
 
-                <div className='item relative w-96'>
+                <div className='item item4 relative w-96'>
                   <img className=' w-12 h-12 absolute left-[-30px] bottom-[50%] ' src={cuatro} alt="imagen1" />
                   <h2 className=''>{modalInfo.texto4}</h2>
                   <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem, quidem.</p>
