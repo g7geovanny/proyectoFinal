@@ -1,0 +1,22 @@
+.principal{
+background-image: url("../assets/factoraje2.svg");
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover; 
+}
+
+
+
+.base{
+    background-color: #f3f4f5;
+}
+
+
+.capa2{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}

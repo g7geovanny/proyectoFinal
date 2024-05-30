@@ -14,7 +14,7 @@ const Map = ({ coordinates }) => {
 
   return (
 
-    <section className={`${estilos.contenedorMapa} 'contenedor-mapa mt-16 mb-16' `}>
+    <section className={`${estilos.contenedorMapa} 'contenedor-mapa ' `}>
 
       <div className='p-10'>
         <LoadScript googleMapsApiKey="AIzaSyCGg6DFKVwN7iiFmgZHtNh-Zguebdak8D8">

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 /*Imagenes */
@@ -22,11 +22,33 @@ import post from "../assets/Post.svg";
 
 
 /*Estilos*/
-import "../styles/HYS.css";
+import "../styles/Planta.css";
+
+
 
 const Planta = () => {
 
-  const images = [amarillo, empresa, post]
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+          section.classList.add('show-me');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+
+
+
+
+
+  const images = [amarillo, post, empresa]
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -69,9 +91,9 @@ const Planta = () => {
         <nav className='flex justify-center items-center '>
             <ul className='flex justify-center items-center gap-16 text-lg font-semibold font-pop uppercase texto-gradient '>
                 <Link to="/"><li>inicio</li></Link>
-                <li>factoraje verde</li>
-                <Link><li>h&s</li></Link>
-                <li>Prevaloracion</li>
+                <Link to="/factoraje-verde">factoraje verde</Link>
+                <Link to="/hys">h & s</Link>
+                <Link to="/planta" >arribo a planta</Link>
             </ul>
         </nav>
       </div>
@@ -93,42 +115,94 @@ const Planta = () => {
     </div>
 
 
+    <div className='container'>
+        <div className='top-section'>
+        <h2 className='texto text-5xl text-center uppercase font-bold py-16'>proceso de ingreso a planta</h2>
+          
+        </div>
 
-      <div className='  w-[1200px] m-auto p-20 '>
-          <h2 className='texto text-5xl text-center uppercase font-bold py-16'>progreso de ingreso a planta</h2>
-          <div className=' grid grid-cols-2'>
-            <div className='space-y-12'>
+        <div className="timeline">
+          <div className="line"></div>
 
-              <div className='contendor-card relative'>
-                <div className='flex flex-col card borde space-y-5 p-5'>
-                  <h2 className='text-2xl text-center font-pop font-semibold text-black uppercase'>validar documentos h&s</h2>
-                  <p className='text-lg font-semibol font-pop text-center'>Lorem ipsum dolor sit amet.</p>
-                  <Link to="/hys" className='boton '>saber mas</Link>
-                </div>
-              </div>
-
-              <div className='contendor-card relative'>
-                <div className='card borde space-y-5 p-5'>
-                  <h2 className='text-2xl text-center font-pop font-semibold text-black uppercase'>realizar la induccion</h2>
-                  <p className='text-lg font-semibol font-pop text-center'>Lorem ipsum dolor sit amet.</p>
-                  <button onClick={() => openModal("inspeccion psicometrica", "llenado de bitacora", "valoracion de fatiga", "prueba antidoping y alcoholímetro") } className='boton'>saber mas</button>
-                </div>
-              </div>
-
-              <div className='contendor-card relative'>
-                <div className='card borde space-y-5 p-5'>
-                  <h2 className='text-2xl text-center font-pop font-semibold text-black uppercase'>Enlonado</h2>
-                  <p className='text-lg font-semibol font-pop text-center'>Lorem ipsum dolor sit amet.</p>
-                  <button onClick={() => openModal } className='boton'>saber mas</button>
-                </div>
-              </div>
-
-            </div>
-
-            <div className='flex justify-center items-center'>
-              <img className=' w-[30rem] h-[30rem]' src={work} alt="" />
+          <div className='section  '>
+          <div className='bead'></div>
+            <div className='content space-y-5 '>
+              <h2 className='text-lg font-pop font-semibold'>Validación de Documentos de Seguridad (H&S)</h2>
+              <buttom className=' boton w-48 m-auto font-bold rounded-md py-2 px-4 block' >saber mas</buttom>
             </div>
           </div>
+
+          <div className='section '>
+          <div className='bead'></div>
+            <div className='content'>
+              <h2 className='text-lg font-pop font-semibold' >Ingreso a Planta</h2>
+              <buttom className=' boton w-48 m-auto font-bold rounded-md py-2 px-4 block' >saber mas</buttom>
+            </div>
+          </div>
+
+          <div className='section '>
+            <div className='bead'></div>
+            <div className='content'>
+              <h2 className='text-lg font-pop font-semibold' >Inducción a la planta</h2>
+              <button onClick={() => openModal("Realiza Inspeccion fisico mecanica", "Se explica llenado de bitacora", "Valoración de fatiga", "Prueba de antidoping y alcoholimetría") } className=' boton w-48 m-auto font-bold rounded-md py-2 px-4 block'>saber mas</button>
+            </div>
+          </div>
+
+          <div className='section'>
+            <div className='bead'></div>
+            <div className='content'>
+              <h2 className='text-lg font-pop font-semibold' >Espera en Patio de Maniobras (Báscula)</h2>
+              <buttom className=' boton w-48 m-auto font-bold rounded-md py-2 px-4 block' >saber mas</buttom>
+            </div>
+          </div>
+
+          <div className='section '>
+            <div className='bead'></div>
+            <div className='content'>
+              <h2 className='text-lg font-pop font-semibold' >Pesaje de la Unidad</h2>
+              <buttom className=' boton w-48 m-auto font-bold rounded-md py-2 px-4 block' >saber mas</buttom>
+            </div>
+          </div>
+
+          <div className='section '>
+            <div className='bead'></div>
+            <div className='content'>
+              <h2 className='text-lg font-pop font-semibold' >Dirección a Paletizadora</h2>
+              <buttom className=' boton w-48 m-auto font-bold rounded-md py-2 px-4 block' >saber mas</buttom>
+            </div>
+          </div>
+
+          <div className='section '>
+            <div className='bead'></div>
+            <div className='content'>
+              <h2 className='text-lg font-pop font-semibold' >Entrega de Remisión</h2>
+              <buttom className=' boton w-48 m-auto font-bold rounded-md py-2 px-4 block' >saber mas</buttom>
+            </div>
+          </div>
+
+          <div className='section '>
+            <div className='bead'></div>
+            <div className='content'>
+              <h2 className='text-lg font-pop font-semibold' >Enlonado de la Unidad (Compañía Externa)</h2>
+              <buttom className=' boton w-48 m-auto font-bold rounded-md py-2 px-4 block' >saber mas</buttom>
+            </div>
+          </div>
+
+          <div className='section '>
+            <div className='bead'></div>
+            <div className='content'>
+              <h2 className='text-lg font-pop font-semibold' >Salida de la Planta</h2>
+              <buttom className=' boton w-48 m-auto font-bold rounded-md py-2 px-4 block'>saber mas</buttom>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div className='  w-[1200px] m-auto  '>
 
           {modalInfo.isOpen && (
 
@@ -163,12 +237,17 @@ const Planta = () => {
                   <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem, quidem.</p>
                 </div>
               
-            </div>
+              </div>
             </div>
                 
               )}
+
             
       </div>
+
+
+
+      
     
     </>
     

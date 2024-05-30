@@ -2,16 +2,18 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 
+/* Imagenes */
+import camion from "../assets/camion.jpg";
+
+
 
 /* Componentes */
 import Card from "../components/Card";
 
 
-
-import camion from "../assets/camion.jpg";
-
 /*Estilos */
 import "../styles/Planta.css";
+import "../styles/HYS.css";
 import logo from "../assets/logo2.svg";
 
 
@@ -39,9 +41,9 @@ const HYS = () => {
             
             <ul className='flex space-x-12 text-lg font-semibold font-pop uppercase texto-gradient '>
                <Link to="/"><li>inicio</li></Link> 
-                <li>factoraje verde</li>
+               <Link to="/factoraje-verde"><li>factoraje verde</li></Link>
                 <Link to="/hys"><li>h&s</li></Link>
-                <li>Prevaloracion</li>
+                <Link to="/planta"><li>arribo a planta</li></Link>
             </ul>
 
         </nav>
@@ -53,12 +55,12 @@ const HYS = () => {
                 <div className=' relative top[50%]  w-[50%] flex flex-col text-center space-y-5  '>
                     <h1 className='text-white text-4xl font-pop font-semibold uppercase'>Requisitos de seguridad <span className='texto-gradient font-bold'>h&s</span> </h1>
                     <p className='font-semibold text-sm text-white'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, ipsam.</p>
-                    <button className='relative w-40 m-auto font-pop text-sm font-semibold text-white bg-green-600 hover:bg-green-700 px-5 py-3 rounded-md'>saber mas</button>
+                    <button className='relative w-40 m-auto font-pop text-sm font-semibold text-white bg-lime-500 hover:bg-lime-600 px-5 py-3 rounded-md'>saber mas</button>
                 </div>
         </div>
 
 
-        <div className=' p-5 '> 
+     
 
         <div className='w-[70%] m-auto flex flex-col justify-center items-center mt-10 mb-10'>
 
@@ -70,13 +72,16 @@ const HYS = () => {
             <span className='font-pop text-2xl font-bold uppercase'>operador</span>
 
         </div>
+
+
             
-            <div className='  space-y-10 '>
+            <div className='  grid grid-cols-3 py-5 gap-10 '>
             {cardsData.map((card) => (
                 <Card title={card.title} texto={card.texto} key={card.key} />
                 ))}
             </div>  
-        </div>
+
+  
 
     </>
   )

@@ -10,14 +10,14 @@ const Video = ({seccion}) => {
 
     <main ref={seccion} className='contenedor-texto-video'>
 
-        <div  className='w-2/3 m-auto items-center space-y-5 '>
-            <h2 className={`font-bold font-pop text-6xl uppercase texto`  }  >contenido principal</h2>
-            <p className='font-semibold font-pop text-lg'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam vel corrupti numquam officiis adipisci rem nihil incidunt enim consectetur hic.</p>
-            <button className=' font-pop text-lg font-semibold text-white bg-green-500 hover:bg-green-600 px-5 py-2 rounded-md'>Contactanos</button>
+        <div  className='texto-video relative w-2/3 m-auto items-center    '>
+            <h2 className={` font-light font-ultra text-7xl texto`  }>¡Todo lo que Necesitas Saber!</h2>
+            <p className=' font-pop text-lg mb-7 mt-7'>¡Descubre lo fácil que es convertirte en nuestro proveedor de transporte! En este video, te mostramos todos los documentos necesarios y cómo obtenerlos rápidamente. ¡Únete a nuestra red de proveedores y comienza a disfrutar de los beneficios hoy mismo!</p>
+            <a className='  font-pop text-lg font-semibold text-white bg-lime-500 hover:bg-lime-600 px-5 py-2 rounded-md'>Contactanos</a>
         </div>
 
         <iframe
-            className="mi-video  "
+            className="mi-video shadow-custom-light "
                 title="YouTube Video"
                 src="https://www.youtube.com/embed/lpF0FX1iCHs?autoplay=1&mute=1"
                 allowFullScreen>

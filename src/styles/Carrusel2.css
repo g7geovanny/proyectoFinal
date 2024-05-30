@@ -1,0 +1,7 @@
+.texto{
+    background: linear-gradient(to right, #7ecf49 ,#04bbf1,#1d4370);
+    background-clip: text; /* Aplicar el gradiente directamente a las letras */
+    -webkit-background-clip: text; /* Para navegadores basados en WebKit */
+    color: transparent;  
+}
+
