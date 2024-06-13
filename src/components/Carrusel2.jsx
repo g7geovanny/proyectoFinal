@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
@@ -19,7 +20,7 @@ import "../styles/Carrusel2.css";
 
 
 
-const Carrusel2 = () => {
+const Carrusel2 = ({toggleModal}) => {
 
   const cardData = [
 
@@ -27,43 +28,57 @@ const Carrusel2 = () => {
     image: camion,
     title: '',
     text: 'Conoce los beneficios de trabajar con holcim',
-    id: 46878
+    id: 46878,
+    link: "/factoraje-verde"
   },
+
   {
     image: seguridad,
     title: '',
     text: 'Conoce los documentos de seguridad que se requieren',
-    id: 5787667
-  },{
+    id: 5787667,
+    link: "/hys"
+  },
+  
+  {
     image: empresa,
     title: '',
     text: '¿Que examenes se le hacen a los operadores para ingresar',
-    id: 97868
+    id: 97868,
+    link: "/hys"
   },
 
   {
     image: camion2,
     title: '',
     text: '¿Por que es importante contar con GPS?',
-    id: 46878
+    id: 46878,
+    link: "/hys"
   },
+
   {
     image: equidad,
     title: '',
     text: 'Conoce las vigencias de tus documentos de seguridad',
     id: 5787667
-  },{
+  },
+
+  
+  {
     image: printed,
     title: '',
     text: 'Verifica las licencias de todos tus operadores',
     id: 97868
   },
+
   {
     image: seguridad,
     title: '',
     text: 'Requisitos minimos para vehiculos (Camiones y Remolques)',
-    id: 97868
+    id: 97868,
+    link: "/hys"
   }
+
 ]
 
 const settings = {
@@ -86,15 +101,27 @@ const settings = {
 
       <div className='mt-20'>
       <Slider {...settings}> 
-        {cardData.map((card) => (
-          <div className='  shadow-xl h-[400px] text-black rounded-xl mt-5 mb-10  '>
+        {cardData.map((card, index) => (
+          <div key={card.id} className='shadow-xl h-[400px] text-black rounded-xl mt-5 mb-10  '>
             <div className='h-56 rounded-t-xl bg-indigo-500 flex justify-center items-center'>
               <img src={card.image} alt="" className='h-full w-full' />
             </div>
 
             <div className='grid grid-rows-2 justify-center items-center p-5 '>
               <p className='text-lg text-center font-semibold font-ultra'>{card.text}</p>
-              <button className='w-[50%] m-auto text-sm uppercase bg-lime-500 rounded-lg py-2 font-bold font-plus'>saber mas</button>
+
+              {index === 4 || index === 5 ? (
+              <button 
+                onClick={toggleModal} 
+                className='w-[50%] m-auto text-center text-sm uppercase bg-lime-500 rounded-lg py-2 font-bold font-plus'>
+                saber mas
+              </button>
+            ) : (
+              <Link to={card.link} className='w-[50%] m-auto text-center text-sm uppercase bg-lime-500 rounded-lg py-2 font-bold font-plus'>
+                saber mas
+              </Link>
+            )}
+              
             </div>
           </div>
         ))}

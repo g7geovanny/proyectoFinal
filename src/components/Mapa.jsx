@@ -2,7 +2,7 @@ import React from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 /* Estilos */
-import estilos from "./Mapa.module.css";
+import "../styles/Mapa.css";
 
 const Map = ({ coordinates }) => {
   const mapContainerStyle = {
@@ -14,7 +14,7 @@ const Map = ({ coordinates }) => {
 
   return (
 
-    <section className={`${estilos.contenedorMapa} 'contenedor-mapa ' `}>
+    <section className='contenedorMapa'>
 
       <div className='p-10'>
         <LoadScript googleMapsApiKey="AIzaSyCGg6DFKVwN7iiFmgZHtNh-Zguebdak8D8">
@@ -29,8 +29,8 @@ const Map = ({ coordinates }) => {
       </div>
       
 
-      <div className={estilos.contenedorMapaTexto}>
-        <div className={estilos.contenedorMapaTextoParrafos}>
+      <div className="contenedorMapaTexto">
+        <div className="contenedorMapaTextoParrafos">
           <p className='text-center text-4xl font-pop font-semibold text-black'>¡Buscanos!</p>
           <h2 className='text-center text-6xl font-bold font-pop uppercase text-white'>Holcim Mexico</h2>
           <p className='text-center text-2xl text-black font-pop font-semibold'>Estas son todas nuestras ubicaciones en el pais</p>

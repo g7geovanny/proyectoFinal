@@ -8,8 +8,15 @@
   background-image: url('../assets/fondo-carretera.avif');
   /* Establecemos la altura y el ancho del contenedor */
   width: 100%;
-  height: 20rem; /* Ajusta la altura según tus necesidades */
+  height: 25rem; /* Ajusta la altura según tus necesidades */
   position: relative;
+}
+
+.barra{
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(to right, #7ecf49 ,#04bbf1,#1d4370);
+  position: absolute;
 }
 
 

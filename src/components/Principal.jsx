@@ -1,15 +1,11 @@
 import React from 'react'
 
-
-
 /*Estilos */
 import  "../styles/Principal.css";
 
 
 /* Componentes */
 import Navegacion from "../components/Navegacion";
-
-
 
 
 /*Imagenes */

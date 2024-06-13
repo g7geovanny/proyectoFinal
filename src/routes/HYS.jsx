@@ -49,27 +49,22 @@ const HYS = () => {
         </nav>
 
 
-        <div className='hero-container relative flex justify-center items-center'>
+        <div className='hero-container relative'>
+            <div className='barra z-10'></div>
             <div className='capa'></div>
-                
-                <div className=' relative top[50%]  w-[50%] flex flex-col text-center space-y-5  '>
-                    <h1 className='text-white text-4xl font-pop font-semibold uppercase'>Requisitos de seguridad <span className='texto-gradient font-bold'>h&s</span> </h1>
-                    <p className='font-semibold text-sm text-white'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, ipsam.</p>
-                    <button className='relative w-40 m-auto font-pop text-sm font-semibold text-white bg-lime-500 hover:bg-lime-600 px-5 py-3 rounded-md'>saber mas</button>
-                </div>
         </div>
 
 
      
 
-        <div className='w-[70%] m-auto flex flex-col justify-center items-center mt-10 mb-10'>
+        <div className='w-[70%] ml-24 flex flex-col  mt-10 mb-20'>
 
-            <h1 className=' font-pop font-bold text-5xl uppercase mb-10 text-center texto-gradient'>Requisitos H&S</h1>
+            <h1 className=' font-pop font-bold text-5xl uppercase mb-10 texto-gradient'>Requisitos H&S</h1>
             <p className='font-pop font-semibold text-lg'>Estimada Línea Transportista, toda unidad y operador que desee trabajar en
             colaboración para Holcim México Operaciones deberá cumplir con los siguientes
             requisitos, los cuales se deberán cargar al sistema en formato de archivo PDF.
             </p>
-            <span className='font-pop text-2xl font-bold uppercase'>operador</span>
+            <span className=' mt-5 font-plus text-2xl font-bold uppercase'>operador</span>
 
         </div>
 

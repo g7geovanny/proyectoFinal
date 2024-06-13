@@ -3,10 +3,9 @@
     width: 100%;
     display: grid;
     grid-template-columns:  1fr 1fr;
-   justify-content: center;
-   align-items: center;
-   padding: 0 10px;
-  
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
     background: linear-gradient(to left, #7ecf49 ,#04bbf1,#1d4370);
     
 }

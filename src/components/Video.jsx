@@ -13,7 +13,6 @@ const Video = ({seccion}) => {
         <div  className='texto-video relative w-2/3 m-auto items-center    '>
             <h2 className={` font-light font-ultra text-7xl texto`  }>¡Todo lo que Necesitas Saber!</h2>
             <p className=' font-pop text-lg mb-7 mt-7'>¡Descubre lo fácil que es convertirte en nuestro proveedor de transporte! En este video, te mostramos todos los documentos necesarios y cómo obtenerlos rápidamente. ¡Únete a nuestra red de proveedores y comienza a disfrutar de los beneficios hoy mismo!</p>
-            <a className='  font-pop text-lg font-semibold text-white bg-lime-500 hover:bg-lime-600 px-5 py-2 rounded-md'>Contactanos</a>
         </div>
 
         <iframe
