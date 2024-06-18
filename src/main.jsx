@@ -7,6 +7,7 @@ import App from './App.jsx'
 import Planta from "./routes/Planta.jsx";
 import HYS from "./routes/HYS.jsx";
 import Factoraje from "./routes/FactorajeVerde.jsx";
+import Unidades from "./routes/Unidades.jsx";
 
 import {
   createBrowserRouter,
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
   {
     path: "/factoraje-verde",
     element: <Factoraje/>
+  },
+
+  {
+    path: "/unidades",
+    element: <Unidades/>
   }
 ]);
 

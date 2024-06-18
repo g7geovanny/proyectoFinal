@@ -33,9 +33,9 @@ const FactorajeVerde = () => {
             </div>
           
             <Link to="/" className='font-bold text-white text-lg uppercase'>inicio</Link>
-            <Link to="/factoraje-verde" className='font-bold text-white text-lg uppercase'>factoraje verde</Link>
             <Link to="/hys" className='font-bold text-white text-lg uppercase'>h & s</Link>
             <Link to="/planta" className='font-bold text-white text-lg uppercase'>arribo a planta</Link>
+            <Link to="/unidades" className='font-bold text-white text-lg uppercase'>unidades</Link>
           </nav>
 
 

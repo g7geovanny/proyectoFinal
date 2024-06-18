@@ -182,12 +182,12 @@ img{
 
 /*linetime*/
 
-.container{
-  padding: 2rem;
+.contenedor-linea{
   padding-bottom: 200px;
-  margin: 0 auto;
-  max-width: 800px;
   overflow: hidden;
+  
+  width: 100%;
+ 
 }
 
 
@@ -238,10 +238,15 @@ img{
   transform: translateX(-100%);
   transition: 600ms ease;
   position: relative;
- 
   align-items: center;
   min-height: 150px;
+  width: 30%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
+
+
 
 .section:nth-child(odd){
   flex-direction: row-reverse;

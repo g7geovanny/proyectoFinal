@@ -28,25 +28,6 @@ import "../styles/Planta.css";
 
 const Planta = () => {
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-          section.classList.add('show-me');
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-
-
-
-
 
   const images = [amarillo, post, empresa]
 
@@ -66,17 +47,64 @@ const Planta = () => {
 
 
 
-  const [modalInfo, setModalInfo] = useState({isOpen: false, title: "", content:""});
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+          section.classList.add('show-me');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
 
-  const openModal = (texto1, texto2, texto3, texto4) => {
-    setModalInfo({isOpen: true, texto1, texto2, texto3, texto4})
 
-  }
 
-  const closeModal = () => {
-    setModalInfo({isOpen: false, title: "", content: ""})
-  }
+  const [activeSection, setActiveSection] = useState(null);
+
+  const handleButtonClick = (index) => {
+    setActiveSection(activeSection === index ? null : index);
+  };
+
+  const handleCloseClick = () => {
+    setActiveSection(null);
+  };
+
+
+
+  const sections = [
+    {texto: "Validación de Documentos de Seguridad (H&S)", textoOculto: "Antes de ingresar a la planta, se verificará que todos los documentos de seguridad estén cargados al 100% en la plataforma de proveedores. El acceso a la planta estará condicionado a cumplir este requisito.", posicion: "right-[33rem]" },
+
+    {texto: "Proceso de Ingreso a Planta", textoOculto: "Para acceder a las instalaciones de la planta, todo personal debe pasar por un punto de control donde se verificará el cumplimiento de los requisitos de seguridad y acceso. Una vez validados los documentos pertinentes y cumplidas las normativas establecidas, se permitirá el ingreso al área autorizada.", posicion: "left-[33rem]"},
+
+    {texto: "Inducción a la planta", textoOculto:"Antes de iniciar labores en la planta, todo nuevo personal deberá recibir una inducción detallada sobre las normativas de seguridad y procedimientos operativos específicos. Además, se llevará a cabo una inspección físico-mecánica mensual para garantizar el óptimo funcionamiento de equipos y maquinaria, asegurando así un entorno de trabajo seguro y eficiente", posicion: "right-[33rem]" },
+
+    {texto: "Proceso de Espera en el Patio de Maniobras (Báscula)", textoOculto:"Los vehículos que lleguen a la báscula deben esperar en el patio de maniobras designado hasta que sean llamados para el pesaje correspondiente. Este proceso asegura una fluidez ordenada en las operaciones logísticas y garantiza que cada vehículo sea atendido de manera eficiente.", posicion: "left-[33rem]"},
+
+    {texto: "Pesaje de la Unidad", textoOculto: "Antes de proceder con la carga o descarga, cada unidad debe someterse a un pesaje preciso para asegurar el cumplimiento de las normativas de carga y seguridad. Este proceso garantiza la correcta distribución del peso y contribuye a mantener la integridad estructural de los equipos y la seguridad en las operaciones logísticas.", posicion: "right-[33rem]" },
+
+    {texto: "Proceso de Dirección a Paletizadora", textoOculto:"Después del pesaje, las unidades dirigidas hacia la paletizadora deben seguir las indicaciones específicas para el correcto posicionamiento y procesamiento de la carga. Este paso asegura una manipulación eficiente y segura de los productos, optimizando los procesos de almacenamiento y distribución.", posicion: "left-[33rem]"},
+
+    {texto: "Proceso de Entrega de Remisión", textoOculto:"Una vez finalizado el proceso en la paletizadora, se procede a la entrega de la remisión correspondiente. Este documento formaliza la recepción o despacho de mercancías, asegurando el registro preciso de la transacción y facilitando la trazabilidad del producto a lo largo de la cadena logística", posicion: "right-[33rem]" },
+
+    {texto: "Proceso de Enlonado de la Unidad", textoOculto:"Antes de proceder con el transporte, se lleva a cabo el enlonado de la unidad. Este paso asegura la protección adecuada de la carga contra condiciones climáticas adversas durante el traslado, manteniendo la integridad y la calidad de los productos transportados", posicion: "left-[33rem]"},
+
+    {texto: "Proceso de Salida de la Planta", textoOculto:"Una vez completadas todas las operaciones y verificaciones necesarias, el vehículo procede a la salida de la planta. Este paso marca el final del proceso logístico interno, asegurando que todas las normativas de seguridad y procedimientos operativos hayan sido cumplidos adecuadamente antes de la salida del sitio", posicion:"right-[33rem]" }
+    
+  ]
+
+
+
+
+
+
+
+  
 
 
 
@@ -93,162 +121,70 @@ const Planta = () => {
                 <Link to="/"><li>inicio</li></Link>
                 <Link to="/factoraje-verde">factoraje verde</Link>
                 <Link to="/hys">h & s</Link>
-                <Link to="/planta" >arribo a planta</Link>
+                <Link to="/unidades" >unidades</Link>
             </ul>
         </nav>
       </div>
 
       <div className="carousel-container">
-      <button onClick={goToPrevious} className="carousel-button previous">&#10094;</button>
-      <div className="slider">
-        {images.map((imageUrl, index) => (
-          <div
-            key={index}
-            className={`slide ${index === currentImageIndex ? 'active' : ''}`}
-            style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
-          >
-            <img src={imageUrl} alt={`Image ${index + 1}`} className="carousel-image" />
-          </div>
-        ))}
+        <button onClick={goToPrevious} className="carousel-button previous">&#10094;</button>
+        <div className="slider">
+          {images.map((imageUrl, index) => (
+            <div
+              key={index}
+              className={`slide ${index === currentImageIndex ? 'active' : ''}`}
+              style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+            >
+              <img src={imageUrl} alt={`Image ${index + 1}`} className="carousel-image" />
+            </div>
+          ))}
+        </div>
+        <button onClick={goToNext} className="carousel-button next">&#10095;</button>
       </div>
-      <button onClick={goToNext} className="carousel-button next">&#10095;</button>
-    </div>
 
 
-    <div className='container'>
+   
+
+
+
+      <div className='contenedor-linea'>
         <div className='top-section'>
-        <h2 className='texto text-5xl text-center uppercase font-bold py-16'>proceso de ingreso a planta</h2>
-          
+          <h2 className='texto text-5xl text-center uppercase font-bold py-16'>proceso de ingreso a planta</h2>
         </div>
 
         <div className="timeline">
           <div className="line"></div>
 
-          <div className='section  '>
-          <div className='bead'></div>
-            <div className='content space-y-5 '>
-              <h2 className='text-lg font-pop font-semibold'>Validación de Documentos de Seguridad (H&S)</h2>
-              <buttom className=' boton w-48 m-auto font-bold rounded-md py-2 px-4 block' >saber mas</buttom>
-            </div>
-          </div>
+          {sections.map((section, index) => (
+            <div key={index} className='section'>
+              <div className='bead'></div>
+              <div className='content space-y-5'>
+                <h2 className='text-lg font-pop font-semibold'>{section.texto}</h2>
+                <button
+                  className='boton w-48 m-auto font-bold rounded-md py-2 px-4 block'
+                  onClick={() => handleButtonClick(index)}
+                >
+                  Saber más
+                </button>
+              </div>
 
-          <div className='section '>
-          <div className='bead'></div>
-            <div className='content'>
-              <h2 className='text-lg font-pop font-semibold' >Ingreso a Planta</h2>
-              <buttom className=' boton w-48 m-auto font-bold rounded-md py-2 px-4 block' >saber mas</buttom>
+              {activeSection === index && (
+                <div className= {`absolute border-gradient-border ml-4 p-4 shadow-custom-dark rounded-md w-[25rem]  ${section.posicion}`}>
+                  <p className='font-pop mb-5 font-semibold'>{section.textoOculto}</p>
+                  <button
+                    className=' boton w-20 font-bold rounded-md border-black py-2 px-4 block  text-white'
+                    onClick={handleCloseClick}
+                    >
+                    Cerrar
+                  </button>
+                </div>
+              )}
             </div>
-          </div>
-
-          <div className='section '>
-            <div className='bead'></div>
-            <div className='content'>
-              <h2 className='text-lg font-pop font-semibold' >Inducción a la planta</h2>
-              <button onClick={() => openModal("Realiza Inspeccion fisico mecanica", "Se explica llenado de bitacora", "Valoración de fatiga", "Prueba de antidoping y alcoholimetría") } className=' boton w-48 m-auto font-bold rounded-md py-2 px-4 block'>saber mas</button>
-            </div>
-          </div>
-
-          <div className='section'>
-            <div className='bead'></div>
-            <div className='content'>
-              <h2 className='text-lg font-pop font-semibold' >Espera en Patio de Maniobras (Báscula)</h2>
-              <buttom className=' boton w-48 m-auto font-bold rounded-md py-2 px-4 block' >saber mas</buttom>
-            </div>
-          </div>
-
-          <div className='section '>
-            <div className='bead'></div>
-            <div className='content'>
-              <h2 className='text-lg font-pop font-semibold' >Pesaje de la Unidad</h2>
-              <buttom className=' boton w-48 m-auto font-bold rounded-md py-2 px-4 block' >saber mas</buttom>
-            </div>
-          </div>
-
-          <div className='section '>
-            <div className='bead'></div>
-            <div className='content'>
-              <h2 className='text-lg font-pop font-semibold' >Dirección a Paletizadora</h2>
-              <buttom className=' boton w-48 m-auto font-bold rounded-md py-2 px-4 block' >saber mas</buttom>
-            </div>
-          </div>
-
-          <div className='section '>
-            <div className='bead'></div>
-            <div className='content'>
-              <h2 className='text-lg font-pop font-semibold' >Entrega de Remisión</h2>
-              <buttom className=' boton w-48 m-auto font-bold rounded-md py-2 px-4 block' >saber mas</buttom>
-            </div>
-          </div>
-
-          <div className='section '>
-            <div className='bead'></div>
-            <div className='content'>
-              <h2 className='text-lg font-pop font-semibold' >Enlonado de la Unidad (Compañía Externa)</h2>
-              <buttom className=' boton w-48 m-auto font-bold rounded-md py-2 px-4 block' >saber mas</buttom>
-            </div>
-          </div>
-
-          <div className='section '>
-            <div className='bead'></div>
-            <div className='content'>
-              <h2 className='text-lg font-pop font-semibold' >Salida de la Planta</h2>
-              <buttom className=' boton w-48 m-auto font-bold rounded-md py-2 px-4 block'>saber mas</buttom>
-            </div>
-          </div>
+          ))}
 
         </div>
-
       </div>
 
-
-
-      <div className='  w-[1200px] m-auto  '>
-
-          {modalInfo.isOpen && (
-
-            <div className="modal-overlay">
-              <div className="modal space-y-12">
-                
-                <button className="modal-close text-4xl z-10" onClick={closeModal}>
-                  <img className=' w-12 h-12' src={cerrar} alt="boton-cerrar" />
-                </button>
-
-                <div className='item item1 relative w-96 bg-slate-500 '>
-                  <img className=' w-12 h-12 absolute left-[-30px] bottom-[50%] ' src={uno} alt="imagen1" />
-                  <h2 className=''>{modalInfo.texto1}</h2>
-                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem, quidem.</p>
-                </div>
-
-                <div className='item item2 relative w-96'>
-                  <img className=' w-12 h-12 absolute left-[-30px] bottom-[50%] ' src={dos} alt="imagen1" />
-                  <h2 className=''>{modalInfo.texto2}</h2>
-                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem, quidem.</p>
-                </div>
-
-                <div className='item item3 relative w-96'>
-                  <img className=' w-12 h-12 absolute left-[-30px] bottom-[50px] ' src={tres} alt="imagen1" />
-                  <h2 className=''>{modalInfo.texto3}</h2>
-                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem, quidem.</p>
-                </div>
-
-                <div className='item item4 relative w-96'>
-                  <img className=' w-12 h-12 absolute left-[-30px] bottom-[50%] ' src={cuatro} alt="imagen1" />
-                  <h2 className=''>{modalInfo.texto4}</h2>
-                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem, quidem.</p>
-                </div>
-              
-              </div>
-            </div>
-                
-              )}
-
-            
-      </div>
-
-
-
-      
-    
     </>
     
   )

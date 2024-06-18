@@ -9,40 +9,19 @@
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.7);
 }
 
-
-@media screen and (min-width: 1440px) and (max-width: 2500px){
-    .contenedor-texto-video{
+.contenedor-texto-video{
        
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        justify-content: center;
-        align-items: center;
-        padding: 60px 10px;
-    }
-
-
-    .mi-video{
-        width: 685px;
-        height: 350px;
-    }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    padding: 60px 10px;
 }
 
 
-
-@media screen and (min-width: 1366px) and (max-width: 1440px){
-    .contenedor-texto-video{
-        margin-top: 80px;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        padding: 5px 10px;
-    }
-
-
-    .mi-video{
-        width: 563px;
-        height: 300px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+.mi-video{
+    width: 685px;
+    height: 350px;
 }
 
 

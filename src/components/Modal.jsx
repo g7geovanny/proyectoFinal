@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 
 /* Imagenes */
+import cerrar from "../assets/boton-x.png";
 
 
 
@@ -14,7 +15,7 @@ function Modal({ onClose, title, content, link, boton}) {
             <div className="flex justify-end items-center pb-3">
               
               <button className="modal-close text-4xl" onClick={onClose}>
-                <img  className=' w-12 h-12' alt="" />
+                <img src={cerrar}  className=' w-12 h-12' alt="" />
               </button>
             </div>
 

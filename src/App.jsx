@@ -30,6 +30,7 @@ import Linea from "./components/Linea";
 import Mapa from "./components/Mapa";
 import Prevaloracion from "./components/Prevaloracion";
 import Carrusel2 from "./components/Carrusel2";
+import Vehiculos from "./components/Vehiculos";
 
 /* Estilos */
 import "./styles/Carrusel2.css";
@@ -52,9 +53,16 @@ const App = () => {
     <> 
 
       <Principal/>
-      <Prevaloracion/>
+      
       <Video/>
+
+      <Prevaloracion/>
+
       <Linea/>
+
+      <Vehiculos/>
+
+    
       <Carrusel2 toggleModal={toggleModal}/>
  
 
@@ -81,19 +89,14 @@ const App = () => {
               className="mySwiper "
             >
 
-              <SwiperSlide>
-                  <p className='font-pop font-semibold uppercase p-2 text-white text-2xl'>paso 1</p>
-                  <iframe className='video-2' src="https://www.youtube.com/embed/lpF0FX1iCHs?autoplay=1&mute=1" frameborder="0"></iframe>
-              </SwiperSlide>
-
               <SwiperSlide className='flex flex-col'>
                 <h2 className='text-white font-pop text-2xl'>Verifica y valida tus documentos</h2>
 
                 <div className='w-full h-full flex flex-col justify-center pt-2 pb-10'>
-                  <a className='w-[40%] text-white text-center text-lg font-semibold font-pop py-4 px-2 rounded-2xl transition-transform transform hover:scale-105 bg-gradient-custom m-auto' href="https://www.gob.mx/busqueda?utf8=%E2%9C%93&q=licencias" target="_blank" >Verificador de licencia Federal de operadores</a>
-                  <a className='w-[40%] text-white text-center text-lg font-semibold font-pop py-4 px-2 rounded-2xl transition-transform transform hover:scale-105 bg-gradient-custom m-auto' href="#">Verificador de Tarjeta de circulación Federal</a>
-                  <a className='w-[40%] text-white text-center text-lg font-semibold font-pop py-4 px-2 rounded-2xl transition-transform transform hover:scale-105 bg-gradient-custom m-auto' href="#">Verificador de Tarjeta de circulación Federal</a>
-                  <a className='w-[40%] text-white text-center text-lg font-semibold font-pop py-4 px-2 rounded-2xl transition-transform transform hover:scale-105 bg-gradient-custom m-auto' href="#">Verificador de Tarjeta de circulación Federal</a>
+                  <a className='w-[40%] text-white text-center text-lg font-semibold font-pop py-4 px-2 rounded-2xl transition-transform transform hover:scale-105 bg-gradient-custom m-auto' href="https://www.gob.mx/busqueda?utf8=%E2%9C%93&q=licencias" target="_blank" >Tarjeta Circulación Federal</a>
+                  <a className='w-[40%] text-white text-center text-lg font-semibold font-pop py-4 px-2 rounded-2xl transition-transform transform hover:scale-105 bg-gradient-custom m-auto' href="#">Comprobante Verificación Ambiental Federal</a>
+                  <a className='w-[40%] text-white text-center text-lg font-semibold font-pop py-4 px-2 rounded-2xl transition-transform transform hover:scale-105 bg-gradient-custom m-auto' href="#">Licencia Federal</a>
+                  <a className='w-[40%] text-white text-center text-lg font-semibold font-pop py-4 px-2 rounded-2xl transition-transform transform hover:scale-105 bg-gradient-custom m-auto' href="#">Certificación Medica Operador</a>
                 </div>
               </SwiperSlide>
 

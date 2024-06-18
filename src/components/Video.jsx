@@ -8,7 +8,7 @@ import "../styles/Video.css";
 const Video = ({seccion}) => {
   return (
 
-    <main ref={seccion} className='contenedor-texto-video'>
+    <main ref={seccion} className='contenedor-texto-video mt-10 '>
 
         <div  className='texto-video relative w-2/3 m-auto items-center    '>
             <h2 className={` font-light font-ultra text-7xl texto`  }>¡Todo lo que Necesitas Saber!</h2>
